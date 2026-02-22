@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Office Blog — Products that make you more productive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.typekit.net/jol4bjn.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <nav class="nav">
+      <div class="nav-links nav-left">
+        <a href="#" class="nav-link">Discover</a>
+        <a href="#" class="nav-link">Browse</a>
+      </div>
+      <a href="#" class="logo" aria-label="Office Blog Home">
+        <img src="SVG/Office blog logo.svg" alt="Office Blog" class="logo-img">
+      </a>
+      <div class="nav-links nav-right">
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="#" class="nav-link">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1 class="hero-heading">
+        Products that make you more <span class="accent">productive.</span>
+      </h1>
+      <p class="hero-subtitle">We find office tools so satisfying to use, they make you want to do more work.</p>
+      <form class="hero-email" action="#" method="post">
+        <div class="newsletter-input-group">
+          <input type="email" class="newsletter-input" placeholder="Your email address" required>
+          <button type="submit" class="newsletter-button">Subscribe</button>
+          <span class="subscribe-success">
+            <svg viewBox="0 0 52 52">
+              <circle class="subscribe-checkmark-circle" cx="26" cy="26" r="25"/>
+              <path class="subscribe-checkmark-check" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+          </span>
+        </div>
+        <p class="newsletter-trust">Free forever. No spam. Unsubscribe anytime.</p>
+      </form>
+    </section>
+
+    <section class="products" id="products">
+      <div class="products-grid">
+
+        <button class="product-card" data-product="mx-master">
+          <div class="product-image-wrapper">
+            <img src="images/mouse.png" alt="Logitech MX Master 4" class="product-image">
+            <div class="product-info">
+              <span class="product-category">Tech &mdash; Mice</span>
+              <h3 class="product-name">Logitech MX Master 4</h3>
+              <span class="product-price">$119.99</span>
+            </div>
+          </div>
+        </button>
+
+        <button class="product-card" data-product="gather-stand">
+          <div class="product-image-wrapper">
+            <img src="images/monitor-stand.png" alt="Gather Large Monitor Stand" class="product-image product-image--wide">
+            <div class="product-info">
+              <span class="product-category">Desk &mdash; Stands</span>
+              <h3 class="product-name">Gather Large Monitor Stand</h3>
+              <span class="product-price">$329.00</span>
+            </div>
+          </div>
+        </button>
+
+        <button class="product-card" data-product="stone-diffuser">
+          <div class="product-image-wrapper">
+            <img src="images/stone-diffuser.png" alt="Vitruvi Stone Diffuser" class="product-image">
+            <div class="product-info">
+              <span class="product-category">Comfort &mdash; Scent</span>
+              <h3 class="product-name">Vitruvi Stone Diffuser</h3>
+              <span class="product-price">$129.99</span>
+            </div>
+          </div>
+        </button>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Product Detail Modal -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-body">
+        <div class="modal-image">
+          <img src="" alt="" class="modal-img" id="modalImg">
+        </div>
+        <div class="modal-content">
+          <span class="section-label" id="modalCategory"></span>
+          <h2 class="modal-product-name" id="modalName"></h2>
+          <p class="modal-headline" id="modalHeadline"></p>
+          <p class="modal-review" id="modalReview"></p>
+          <div class="modal-details" id="modalDetails"></div>
+          <div class="modal-meta">
+            <span class="modal-price" id="modalPrice"></span>
+            <a href="#" class="cta-button modal-cta" id="modalLink" target="_blank" rel="noopener">View Product</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="footer-logo" aria-label="Office Blog Home">
+            <img src="SVG/Office blog logo.svg" alt="Office Blog" class="footer-logo-img">
+          </a>
+          <p class="footer-tagline">Office tools that feel as good as they perform.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Shop</h4>
+          <a href="#products" class="footer-link">Discover</a>
+          <a href="#categories" class="footer-link">Browse</a>
+          <a href="#" class="footer-link">All Products</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Company</h4>
+          <a href="#" class="footer-link">About</a>
+          <a href="blog.html" class="footer-link">Blog</a>
+          <a href="#" class="footer-link">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-col-heading">Stay Connected</h4>
+          <a href="#" class="footer-link">Twitter</a>
+          <a href="#" class="footer-link">Instagram</a>
+          <a href="#newsletter" class="footer-link">Newsletter</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copyright">&copy; 2025 Office Blog. All rights reserved.</span>
+        <div class="footer-legal">
+          <a href="#" class="footer-legal-link">Privacy</a>
+          <a href="#" class="footer-legal-link">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
