@@ -72,53 +72,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Modal logic
   const modal = document.getElementById('productModal');
-  const modalImg = document.getElementById('modalImg');
-  const modalCategory = document.getElementById('modalCategory');
-  const modalName = document.getElementById('modalName');
-  const modalHeadline = document.getElementById('modalHeadline');
-  const modalReview = document.getElementById('modalReview');
-  const modalDetails = document.getElementById('modalDetails');
-  const modalPrice = document.getElementById('modalPrice');
-  const modalLink = document.getElementById('modalLink');
 
-  function openModal(productId) {
-    const product = products[productId];
-    if (!product) return;
+  if (modal) {
+    const modalImg = document.getElementById('modalImg');
+    const modalCategory = document.getElementById('modalCategory');
+    const modalName = document.getElementById('modalName');
+    const modalHeadline = document.getElementById('modalHeadline');
+    const modalReview = document.getElementById('modalReview');
+    const modalDetails = document.getElementById('modalDetails');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalLink = document.getElementById('modalLink');
 
-    modalImg.src = product.image;
-    modalImg.alt = product.name;
-    modalCategory.textContent = product.category;
-    modalName.textContent = product.name;
-    modalHeadline.textContent = product.headline;
-    modalReview.textContent = product.review;
-    modalDetails.innerHTML = '<ul>' + product.details.map(d => `<li>${d}</li>`).join('') + '</ul>';
-    modalPrice.textContent = product.price;
-    modalLink.href = product.link;
+    function openModal(productId) {
+      const product = products[productId];
+      if (!product) return;
 
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
+      modalImg.src = product.image;
+      modalImg.alt = product.name;
+      modalCategory.textContent = product.category;
+      modalName.textContent = product.name;
+      modalHeadline.textContent = product.headline;
+      modalReview.textContent = product.review;
+      modalDetails.innerHTML = '<ul>' + product.details.map(d => `<li>${d}</li>`).join('') + '</ul>';
+      modalPrice.textContent = product.price;
+      modalLink.href = product.link;
 
-  function closeModal() {
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
-  }
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
 
-  document.querySelectorAll('.product-card[data-product]').forEach(card => {
-    card.addEventListener('click', () => {
-      openModal(card.dataset.product);
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.product-card[data-product]').forEach(card => {
+      card.addEventListener('click', () => {
+        openModal(card.dataset.product);
+      });
     });
-  });
 
-  modal.querySelector('.modal-close').addEventListener('click', closeModal);
+    modal.querySelector('.modal-close').addEventListener('click', closeModal);
 
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  }
+
+  // Mobile hamburger menu
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuClose = mobileMenu ? mobileMenu.querySelector('.mobile-menu-close') : null;
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+
+    mobileMenuClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+
+    // Close menu when a link is tapped
+    mobileMenu.querySelectorAll('.mobile-menu-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 
   // Subscribe form — checkmark animation
   document.querySelectorAll('.hero-email').forEach(form => {
